@@ -78,12 +78,29 @@ router.get('/', async (req: Request, res: Response) => {
 
         const orderBy =
             sort_by_date === 'asc' || sort_by_date === 'desc'
-                ? [{ transaction_date: sort_by_date as 'asc' | 'desc' }, { quantity: sort_by_date as 'asc' | 'desc' }]
+                ? { transaction_date: sort_by_date as 'asc' | 'desc' }
                 : undefined;
 
         const transactions = await prisma.transaction.findMany({
             where,
             orderBy,
+        });
+
+        res.json(transactions);
+    } catch (error) {
+        res.status(500).json({ error: (error as Error).message });
+    }
+});
+
+router.get('/sort/quantity', async (req: Request, res: Response) => {
+    try {
+        const { direction } = req.query;
+        const orderBy =
+            direction === 'asc' || direction === 'desc'
+                ? { quantity: direction as 'asc' | 'desc' }
+                : undefined;
+        const transactions = await prisma.transaction.findMany({
+            orderBy: orderBy,
         });
 
         res.json(transactions);

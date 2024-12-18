@@ -73,12 +73,14 @@ Relation:
 
    exit;
    ```
-3. Generate prisma client (database client)
+
+4. Copy file `.env.example` ke `.env`:
    ```bash
-   npx prisma init
+   cp .env.example .env
    ```
 
-4. Konfigurasi database di file `.env`:
+   Kemudian, konfigurasikan database di `.env`:
+
    ```env
    DATABASE_URL="mysql://username:password@localhost:3306/database_name"
    ```

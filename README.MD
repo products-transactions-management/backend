@@ -48,9 +48,8 @@ Relation:
 ## Instalasi dan Konfigurasi
 
 ### Prasyarat
-1. **Node.js** v18 atau lebih baru.
-2. **MySQL** v8 atau lebih baru.
-3. **Prisma CLI** (opsional untuk migrasi manual).
+- **Node.js** v18 atau lebih baru.
+- **MySQL** v8 atau lebih baru.
 
 ### Langkah Instalasi
 1. Clone repository ini:
@@ -115,11 +114,6 @@ Untuk lebih detail, buka [API Documentation with Postman](https://documenter.get
   - `POST /transactions` - Tambahkan transaksi baru.
   - `PUT /transactions/:id` - Update data transaksi.
   - `DELETE /transactions/:id` - Hapus data transaksi.
-
-#### Query Parameters (Optional)
-- `sort`: Sorting transaksi berdasarkan `transaction_date` atau `quantity` (`asc` atau `desc`).
-- `filter_start` & `filter_end`: Filter berdasarkan rentang tanggal transaksi.
-- `quantity_min` & `quantity_max`: Filter berdasarkan rentang kuantitas.
 
 ---
 
